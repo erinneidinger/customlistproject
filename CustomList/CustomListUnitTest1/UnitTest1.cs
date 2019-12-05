@@ -66,10 +66,18 @@ namespace CustomListUnitTest1
         public void AddMethod_FindingCapacity_ReturnCapacity()
         {
             //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int anynumber = 1;
+            bool expected = true; //
+            bool actual;
 
             //act
+            customlist.Add(anynumber);
+            actual = (customlist.Capacity == 5); 
+
 
             //assert
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -77,10 +85,17 @@ namespace CustomListUnitTest1
         public void AddMethod_FindCount_ReturningCount()
         {
             //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int anynumber = 1;
+            int expected;
+            int actual;
 
             //act
+            customlist.Add(anynumber);
+
 
             //assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
