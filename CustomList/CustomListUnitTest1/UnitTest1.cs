@@ -5,7 +5,7 @@ using CustomList;
 namespace CustomListUnitTest1
 {
     [TestClass]
-    public class AddMethodTests
+    public class MethodTests
     {
         [TestMethod]
         public void AddMethod_AddingToIndex_ReturnIndexLocation()
@@ -85,21 +85,40 @@ namespace CustomListUnitTest1
         {
             //arrange
             CustomList<int> customlist = new CustomList<int>();
-            int anynumber = 1;
             int expected;
             int actual;
 
             //act
-            expected = 1;
+            expected = 5;
             customlist.Add(1);
             customlist.Add(2);
             customlist.Add(3);
             customlist.Add(4);
             customlist.Add(5);
-            actual = customlist[0];
+            actual = customlist[4];
 
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void RemoveMethod_RemoveIndex_ReturnIndex()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int anynumber = 5;
+            int expected;
+            int actual;
+
+            //act
+            customlist.Add(anynumber);
+            customlist.Add(anynumber);
+            actual = customlist[0];
+          //  customlist.Remove(anynumber);
+
+            //assert
+         //   Assert.AreEqual(expected, actual);
+        }
+
     }
 }

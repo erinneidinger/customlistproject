@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList <T>
+    public class CustomList<T>
     {
-        T[] items;
-
+        public T[] items;
         private int capacity;
         public int Capacity
         {
@@ -19,13 +18,24 @@ namespace CustomList
             }
             set
             {
-                if(value <= 5)
+                if (count > capacity)
                 {
                     capacity = value;
                 }
-                else if (value > 5)
+            }
+        }
+
+        public T this [int i]
+        {
+            get
+            {
+                return items[i];
+            }
+            set
+            {
+                if (i <= Count)
                 {
-                    capacity = 8;
+                    items[i] = value;
                 }
             }
         }
@@ -39,15 +49,30 @@ namespace CustomList
             }
         }
 
-        
-
         public CustomList()
         {
             items = new T[4];
+            count = 0;
+            capacity = 4;
         }
+
         public void Add(T item)
         {
+            if (count == capacity) 
+            {
+                T[] items2 = new T[capacity *= 2]; //Insert SwappingCapacity Method
 
+                for (int i = 0; i < count; i++)
+                {
+                    items2[i] = items[i];
+\                }
+
+                items = items2;
+            }
+
+                items[count] = item; //AddingToIndex<T>();
+            
+            count++; //IncreasingCount<T>();
         }
     }
 }

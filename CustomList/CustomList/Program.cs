@@ -10,12 +10,12 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            List<int> customlist = new List<int>();
-            //customlist.Add(2);
-            //customlist.Add(4);
-            //customlist.Add(6);
-            //customlist.Add(8);
-            //customlist.Add(10);
+            CustomList<int> customlist = new CustomList<int>();
+            customlist.Add(2);
+            customlist.Add(4);
+            customlist.Add(6);
+            customlist.Add(8);
+            customlist.Add(10);
 
             //int[] one = new int[4];
             //one[0] = 2;
