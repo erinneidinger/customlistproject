@@ -17,19 +17,18 @@ namespace CustomListUnitTest1
 
             //act
             customlist.Add(expected);
-            //actual = customlist[0];
+            actual = customlist[0];
 
             //assert
-            //Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-
         public void AddMethod_FindCount_ReturnArrayCount()
         {
             //arrange
             CustomList<int> customlist = new CustomList<int>();
-            int anynumber =1;
+            int anynumber = 1;
             int expected;
             int actual;
 
@@ -43,7 +42,6 @@ namespace CustomListUnitTest1
         }
 
         [TestMethod]
-
         public void AddMethod_FindCapacity_ReturnNewCapacity()
         {
             //arrange
@@ -53,7 +51,7 @@ namespace CustomListUnitTest1
             int actual;
 
             //act
-            expected = 5;
+            expected = 4;
             customlist.Add(anynumber);
             actual = customlist.Capacity;
 
@@ -62,26 +60,27 @@ namespace CustomListUnitTest1
         }
 
         [TestMethod]
-
         public void AddMethod_FindingCapacity_ReturnCapacity()
         {
             //arrange
             CustomList<int> customlist = new CustomList<int>();
             int anynumber = 1;
-            bool expected = true; //
+            bool expected = true;
             bool actual;
 
             //act
             customlist.Add(anynumber);
-            actual = (customlist.Capacity == 5); 
-
+            customlist.Add(anynumber);
+            customlist.Add(anynumber);
+            customlist.Add(anynumber);
+            customlist.Add(anynumber);
+            actual = (customlist.Capacity == 8);
 
             //assert
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-
         public void AddMethod_FindCount_ReturningCount()
         {
             //arrange
@@ -91,8 +90,13 @@ namespace CustomListUnitTest1
             int actual;
 
             //act
-            customlist.Add(anynumber);
-
+            expected = 1;
+            customlist.Add(1);
+            customlist.Add(2);
+            customlist.Add(3);
+            customlist.Add(4);
+            customlist.Add(5);
+            actual = customlist[0];
 
             //assert
             Assert.AreEqual(expected, actual);
