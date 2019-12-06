@@ -65,7 +65,7 @@ namespace CustomList
                 for (int i = 0; i < count; i++)
                 {
                     items2[i] = items[i];
-\                }
+                }
 
                 items = items2;
             }
@@ -73,6 +73,10 @@ namespace CustomList
                 items[count] = item; //AddingToIndex<T>();
             
             count++; //IncreasingCount<T>();
+        }
+        public void Remove()
+        {
+
         }
     }
 }

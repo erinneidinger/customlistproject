@@ -106,19 +106,153 @@ namespace CustomListUnitTest1
         {
             //arrange
             CustomList<int> customlist = new CustomList<int>();
-            int anynumber = 5;
+            int actual;
+
+            //act
+            int expected = 2;
+            customlist.Add(1);
+            customlist.Add(2);
+            customlist.Add(3);
+            customlist.Add(4);
+            customlist.Remove(4);
+            customlist.Remove(3);
+            actual = customlist[1];
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveMethod_FindCount_ReturnTotal()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
             int expected;
             int actual;
 
             //act
-            customlist.Add(anynumber);
-            customlist.Add(anynumber);
-            actual = customlist[0];
-          //  customlist.Remove(anynumber);
+            expected = 3;
+            customlist.Add(1);
+            customlist.Add(2);
+            customlist.Add(3);
+            customlist.Add(4);
+            customlist.Remove(4);
+            actual = customlist.Count;
 
             //assert
-         //   Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void RemoveMethod_FindCapacity_ReturnCapacity()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int expected;
+            int actual;
+
+            //act
+            expected = 4;
+            customlist.Add(1);
+            customlist.Add(2);
+            customlist.Add(3);
+            customlist.Add(4);
+            customlist.Remove(4);
+            actual = customlist.Capacity;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveMethod_FindDoubleCapacity_ReturnCapacity()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int expected;
+            int actual;
+
+            //act
+            expected = 8;
+            customlist.Add(1);
+            customlist.Add(2);
+            customlist.Add(3);
+            customlist.Add(4);
+            customlist.Add(5);
+            customlist.Add(6);
+            customlist.Add(7);
+            customlist.Remove();
+            actual = customlist.Capacity;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveMethod_FindCount_ReturningCount()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int expected;
+            int actual;
+
+            //act
+            expected = 6;
+            customlist.Add(1);
+            customlist.Add(2);
+            customlist.Add(3);
+            customlist.Add(4);
+            customlist.Add(5);
+            customlist.Add(6);
+            customlist.Add(7);
+            customlist.Add(8);
+            customlist.Remove(8);
+            customlist.Remove(7);
+            actual = customlist.Count;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveMethod_FindCountWithSameNumbers_ReturningCount()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int fixednumber = 2;
+            int expected;
+            int actual;
+
+            //act
+            expected = 3;
+            customlist.Add(fixednumber);
+            customlist.Add(fixednumber);
+            customlist.Add(fixednumber);
+            customlist.Add(fixednumber);
+            customlist.Remove(2);
+            actual = customlist.Count;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveMethod_FindCountWithNumberNotExisting_ReturningCount()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int expected;
+            int actual;
+
+            //act
+            expected = 2;
+            customlist.Add(1);
+            customlist.Add(2);
+            customlist.Remove(20);
+            actual = customlist.Count;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
