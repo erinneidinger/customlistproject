@@ -254,5 +254,64 @@ namespace CustomListUnitTest1
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void ToStringMethod_ConcatString_ReturningFullString()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            int firstnumber = 2;
+            int secondnumber = 4;
+            string expected = "24";
+
+            customlist.Add(firstnumber);
+            customlist.Add(secondnumber);
+
+            string actual;
+
+            //act
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ToStringMethod_CountingStrings_ReturnCount()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string aaron = "Aaron";
+            string rodgers = "Rodgers";
+            string expected = "AaronRodgers";
+            string actual;
+
+            customlist.Add(aaron);
+            customlist.Add(rodgers);
+
+            //act
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ToStringMethod_EmptyString_ReturnEmpty()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            string empty = " ";
+            string expected = " ";
+            string actual;
+
+            customlist.Add(empty);
+
+            //act
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

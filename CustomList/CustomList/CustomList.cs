@@ -90,7 +90,16 @@ namespace CustomList
                 }
             }
             items = tempitems;
-            //DecreasingCount(); //count is still decreasing even when 40 is not removed because it doesnt exist. 
+        }
+
+        public override string ToString()
+        {
+            string result = "";
+            for (int i = 0; i < count; i++)
+            {
+                result += items[i].ToString();
+            }
+            return result;
         }
 
         public void SwappingCapacity()

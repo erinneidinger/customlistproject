@@ -13,7 +13,7 @@ namespace CustomList
             CustomList<int> customlist = new CustomList<int>();
             customlist.Add(1);
             customlist.Add(2);
-            customlist.Remove(20); //debug using 4 next, then bash
+            customlist.ToString();
 
             //int[] one = new int[4];
             //one[0] = 2;
