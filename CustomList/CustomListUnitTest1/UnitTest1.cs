@@ -248,7 +248,7 @@ namespace CustomListUnitTest1
             expected = 2;
             customlist.Add(1);
             customlist.Add(2);
-            customlist.Remove(20);
+            customlist.Remove(40);
             actual = customlist.Count;
 
             //assert

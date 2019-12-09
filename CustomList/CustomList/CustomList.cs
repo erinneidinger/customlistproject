@@ -69,24 +69,28 @@ namespace CustomList
 
         public void Remove(T item)
         {
+            bool didRemove = false;
             T[] tempitems = new T [capacity];
             for(int i = 0, j = 0; i < count; i++, j++)
             {
-                if (items[i].Equals(item))
+                if (items[i].Equals(item) && !didRemove)
                 {
                     j--;
+                    didRemove = true;
+                    DecreasingCount();
                 }
-                //else if (items[i].Equals(item) == false)
-                //{
-
-                //}
+                else if(items[i].Equals(item) && didRemove)
+                {
+                    tempitems[j] = items[i];
+                    didRemove = true;
+                }
                 else
                 {
                     tempitems[j] = items[i];
-                } 
+                }
             }
             items = tempitems;
-            DecreasingCount();
+            //DecreasingCount(); //count is still decreasing even when 40 is not removed because it doesnt exist. 
         }
 
         public void SwappingCapacity()

@@ -11,11 +11,8 @@ namespace CustomList
         static void Main(string[] args)
         {
             CustomList<int> customlist = new CustomList<int>();
+            customlist.Add(1);
             customlist.Add(2);
-            customlist.Add(4);
-            customlist.Add(6);
-            customlist.Add(8);
-            customlist.Add(10);
             customlist.Remove(20); //debug using 4 next, then bash
 
             //int[] one = new int[4];
