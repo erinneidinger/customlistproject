@@ -16,6 +16,7 @@ namespace CustomList
             customlist.Add(6);
             customlist.Add(8);
             customlist.Add(10);
+            customlist.Remove(20); //debug using 4 next, then bash
 
             //int[] one = new int[4];
             //one[0] = 2;

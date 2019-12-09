@@ -181,7 +181,7 @@ namespace CustomListUnitTest1
             customlist.Add(5);
             customlist.Add(6);
             customlist.Add(7);
-            customlist.Remove();
+            customlist.Remove(7);
             actual = customlist.Capacity;
 
             //assert

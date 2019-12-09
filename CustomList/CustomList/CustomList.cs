@@ -60,23 +60,53 @@ namespace CustomList
         {
             if (count == capacity) 
             {
-                T[] items2 = new T[capacity *= 2]; //Insert SwappingCapacity Method
-
-                for (int i = 0; i < count; i++)
-                {
-                    items2[i] = items[i];
-                }
-
-                items = items2;
+                SwappingCapacity();
             }
-
                 items[count] = item; //AddingToIndex<T>();
-            
-            count++; //IncreasingCount<T>();
-        }
-        public void Remove()
-        {
 
+            IncreasingCount();
+        }
+
+        public void Remove(T item)
+        {
+            T[] tempitems = new T [capacity];
+            for(int i = 0, j = 0; i < count; i++, j++)
+            {
+                if (items[i].Equals(item))
+                {
+                    j--;
+                }
+                //else if (items[i].Equals(item) == false)
+                //{
+
+                //}
+                else
+                {
+                    tempitems[j] = items[i];
+                } 
+            }
+            items = tempitems;
+            DecreasingCount();
+        }
+
+        public void SwappingCapacity()
+        {
+            T[] items2 = new T[capacity *= 2]; 
+
+            for (int i = 0; i < count; i++)
+            {
+                items2[i] = items[i];
+            }
+            items = items2;
+        }
+
+        public void IncreasingCount() 
+        {
+            count++;
+        }
+        public void DecreasingCount()
+        {
+            count--;
         }
     }
 }
