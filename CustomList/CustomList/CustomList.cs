@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         public T[] items;
         private int capacity;
@@ -100,6 +100,16 @@ namespace CustomList
                 result += items[i].ToString();
             }
             return result;
+        }
+
+        public static CustomList operator+() //compare lists one and two
+        {
+
+        }
+
+        public static CustomList operator-() //compare lists one and two
+        {
+
         }
 
         public void SwappingCapacity()

@@ -313,5 +313,50 @@ namespace CustomListUnitTest1
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void OverloadPlusMethod_PlusOperator_ReturnAddingLists()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = "3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+            string sixthnumber = "6";
+
+            string expected = ("1, 2, 3, 4, 5, 6");
+            string actual;
+
+            customlist.Add(onenumber);
+            customlist.Add(twonumber);
+            customlist.Add(threenumber);
+            customlist.Add(fournumber);
+            customlist.Add(fifthnumber);
+            customlist.Add(sixthnumber);
+
+            customlist.ToString();
+
+            //act
+            //actual = customlist.Operator+();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod] //Try tests that have different amount of lists and spaces in it. finish tonight. 
+        public void OverloadPlusMethod_PlusOperator_ReturnAdjoingingNumbers()
+        {
+            //arrange
+            
+            //act
+            //actual = customlist.OverloadPlusOperator();
+
+            //assert
+            //Assert.AreEqual(expected, actual);
+        }
     }
 }
