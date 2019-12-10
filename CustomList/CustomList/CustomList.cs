@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         public T[] items;
         private int capacity;
@@ -54,6 +55,14 @@ namespace CustomList
             items = new T[4];
             count = 0;
             capacity = 4;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                yield return items[i];
+            }
         }
 
         public void Add(T item)
@@ -120,27 +129,26 @@ namespace CustomList
 
         public static CustomList<T> operator -(CustomList<T> listone, CustomList<T> listtwo) //compare lists one and two
         {
-            CustomList<T> result = new CustomList<T>();
+            CustomList<T> result = new CustomList<T>(); //creating a new list for the sum
 
-            for (int i = 0; i < listone.count; i++)
+            for (int i = 0; i < listone.count; i++)  //each character in listone will be tested for a match with listtwo.
             {
                 bool NotEqual = true;
-                for (int j = 0; j < listtwo.count; j++)
+                for (int j = 0; j < listtwo.count; j++) 
                 {
-                    if (listone[i].Equals(listtwo[j]))
+                    if (listone[i].Equals(listtwo[j])) //if a match is found, the character will be subtracted or removed from the list. 
                     {
                         NotEqual = false;
                     }
                 }
-                if (NotEqual == true)
+                if (NotEqual == true) //if no match is found, the character will be added to the results list. 
                 {
                     result.Add(listone[i]);
                 }
             }
-            return result;
+            return result; //returns the sum 
         }
-         //123 345
-        //comparing listone.count to listtwo.count
+         
         public CustomList<T> Zip (CustomList<T> listone, CustomList<T> listtwo)
         {
             CustomList<T> result = new CustomList<T>();

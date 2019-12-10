@@ -496,20 +496,14 @@ namespace CustomListUnitTest1
             CustomList<string> one = new CustomList<string>();
             CustomList<string> two = new CustomList<string>();
 
-            string onenumber = "1";
-            string twonumber = "5";
-            string threenumber = "3";
-            string fournumber = "4";
-            string fifthnumber = "5";
-
             int expected = 2;
             int actual;
 
-            one.Add(onenumber);
-            one.Add(twonumber);
-            one.Add(threenumber);
-            two.Add(fournumber);
-            two.Add(fifthnumber);
+            one.Add("1");
+            one.Add("5");
+            one.Add("3");
+            two.Add("4");
+            two.Add("5");
 
             customlist.ToString();
 
