@@ -315,7 +315,7 @@ namespace CustomListUnitTest1
         }
 
         [TestMethod]
-        public void OverloadPlusMethod_PlusOperator_ReturnAddingLists()
+        public void OverloadMethod_PlusOperator_ReturnAddingLists()
         {
             //arrange
             CustomList<string> customlist = new CustomList<string>();
@@ -329,34 +329,260 @@ namespace CustomListUnitTest1
             string fifthnumber = "5";
             string sixthnumber = "6";
 
-            string expected = ("1, 2, 3, 4, 5, 6");
-            string actual;
+            string expectedone = "1";
+            string expectedtwo = "5";
+            string actualone;
+            string actualtwo;
 
-            customlist.Add(onenumber);
-            customlist.Add(twonumber);
-            customlist.Add(threenumber);
-            customlist.Add(fournumber);
-            customlist.Add(fifthnumber);
-            customlist.Add(sixthnumber);
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+            two.Add(sixthnumber);
+
+            //act
+            customlist = one + two;
+            actualone = customlist[0];
+            actualtwo = customlist[4];
+
+            //assert
+            Assert.AreEqual(expectedone, actualone);
+            Assert.AreEqual(expectedtwo, actualtwo);
+        }
+        [TestMethod] //Try tests that have different amount of lists and spaces in it. 
+        public void OverloadMethod_PlusOperator_AddingTwoDifferentLists()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = "3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+
+            string expectedone = "2";
+            string expectedtwo = "4";
+            string actualone;
+            string actualtwo;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            two.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
 
             customlist.ToString();
 
             //act
-            //actual = customlist.Operator+();
+            customlist = one + two;
+            actualone = customlist[1];
+            actualtwo = customlist[3];
+
+            //assert
+            Assert.AreEqual(expectedone, actualone);
+            Assert.AreEqual(expectedtwo, actualtwo);
+        }
+
+        [TestMethod] 
+        public void OverloadMethod_PlusOperator_EmptyStrings()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = " ";
+            string fournumber = "4";
+
+            string expected = " ";
+            string actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            two.Add(threenumber);
+            two.Add(fournumber);
+
+            one.ToString();
+            two.ToString();
+
+            //act
+            customlist = one + two;
+            actual = customlist[2];
 
             //assert
             Assert.AreEqual(expected, actual);
         }
-        [TestMethod] //Try tests that have different amount of lists and spaces in it. finish tonight. 
-        public void OverloadPlusMethod_PlusOperator_ReturnAdjoingingNumbers()
+
+        [TestMethod] //Look for count and single asserts. 
+        public void OverloadMethod_PlusOperator_Count()
         {
             //arrange
-            
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = "3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+
+            int expected = 5;
+            int actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            two.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+
+            customlist.ToString();
+
             //act
-            //actual = customlist.OverloadPlusOperator();
+            customlist = one + two;
+            actual = customlist.Count;
+            
 
             //assert
-            //Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void OverloadMethod_MinusOperator_ReturnNewSumInLists()
+        {
+            //arrange
+            CustomList<int> customlist = new CustomList<int>();
+            CustomList<int> one = new CustomList<int>();
+            CustomList<int> two = new CustomList<int>();
+
+            int onenumber = 1;
+            int twonumber = 2;
+            int threenumber = 3;
+            int fournumber = 2;
+            int fifthnumber = 5;
+            int sixthnumber = 6;
+
+            string actual;
+            string expected;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+            two.Add(sixthnumber);
+
+
+            //act
+            customlist = one - two;
+            actual = customlist.ToString();
+            expected = "13";
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void OverloadMethod_MinusOperator_Count()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "5";
+            string threenumber = "3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+
+            int expected = 2;
+            int actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+
+            customlist.ToString();
+
+            //act
+            customlist = one - two;
+            actual = customlist.Count;
+
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void OverloadMethod_MinusOperator_EmptyStrings()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = " ";
+            string twonumber = "1";
+            string threenumber = "1";
+            string fournumber = "4";
+
+            string expected = " ";
+            string actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            two.Add(threenumber);
+            two.Add(fournumber);
+
+            one.ToString();
+            two.ToString();
+
+            //act
+            customlist = one - two;
+            actual = customlist[0];
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod] 
+        public void OverloadMethod_PlusOperator_DeterminingWhenNoChange()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = "3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+
+            string expected = "12345";
+            string actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            two.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+
+            //act
+            customlist = one - two;
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }

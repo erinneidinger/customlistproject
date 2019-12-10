@@ -11,19 +11,18 @@ namespace CustomList
         static void Main(string[] args)
         {
             CustomList<int> customlist = new CustomList<int>();
-            customlist.Add(1);
-            customlist.Add(2);
-            customlist.ToString();
 
-            //int[] one = new int[4];
-            //one[0] = 2;
-            //one[1] = 4;
-            //one[2] = 6;
-            //one[3] = 8;
+            CustomList<int> listone = new CustomList<int>();
+            listone.Add(1);
+            listone.Add(2);
+            listone.Add(3);
+            CustomList<int> listtwo = new CustomList<int>();
+            listtwo.Add(1);
+            listtwo.Add(2);
+            listtwo.Add(3);
 
-            //int[] two = new int[8];
-            //two[4] = 10;
-
+            customlist = listone + listtwo;
         }
     }
 }
+
