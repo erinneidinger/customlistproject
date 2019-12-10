@@ -21,7 +21,7 @@ namespace CustomList
             listtwo.Add(4);
             listtwo.Add(5);
 
-            customlist = listone - listtwo;
+            customlist.Zip(listone,listtwo);
         }
     }
 }

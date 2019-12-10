@@ -612,7 +612,7 @@ namespace CustomListUnitTest1
             two.Add(sixthnumber);
 
             //act
-            customlist = one.Zip(two);
+            customlist = customlist.Zip(one, two);
             actual = customlist.ToString();
 
             //assert
@@ -645,7 +645,7 @@ namespace CustomListUnitTest1
             two.Add(sixthnumber);
 
             //act
-            customlist = one.Zip(two);
+            customlist = customlist.Zip(one,two);
             actual = customlist.ToString();
 
             //assert
@@ -678,7 +678,7 @@ namespace CustomListUnitTest1
             two.Add(sixthnumber);
 
             //act
-            customlist = one.Zip(two);
+            customlist = customlist.Zip(one,two);
             actual = customlist.Count;
 
             //assert
@@ -711,7 +711,7 @@ namespace CustomListUnitTest1
             two.Add(sixthnumber);
 
             //act
-            customlist = one.Zip(two);
+            customlist = customlist.Zip(one,two);
             actual = customlist.ToString();
 
             //assert
@@ -734,7 +734,7 @@ namespace CustomListUnitTest1
             string sixthnumber = "6";
             string seventhnumber = "7";
 
-            string expected = "1425367";
+            string expected = "4152637";
             string actual;
 
             one.Add(onenumber);
@@ -746,7 +746,7 @@ namespace CustomListUnitTest1
             two.Add(seventhnumber);
 
             //act
-            customlist = one.Zip(two);
+            customlist = customlist.Zip(one,two);
             actual = customlist.ToString();
 
             //assert
@@ -781,7 +781,7 @@ namespace CustomListUnitTest1
             two.Add(seventhnumber);
 
             //act
-            customlist = one.Zip(two);
+            customlist = customlist.Zip(one,two);
             actual = customlist.ToString();
 
             //assert

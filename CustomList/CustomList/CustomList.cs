@@ -139,12 +139,43 @@ namespace CustomList
             }
             return result;
         }
-
-        public void Zip (CustomList<T> listone, CustomList<T> listtwo)
+         //123 345
+        //comparing listone.count to listtwo.count
+        public CustomList<T> Zip (CustomList<T> listone, CustomList<T> listtwo)
         {
             CustomList<T> result = new CustomList<T>();
 
-            
+            if(listone.count >= listtwo.count)
+            {
+                for (int i = 0; i < listone.count; i++)
+                {
+                    if (i < listone.count)
+                    {
+                        result.Add(listone[i]);
+
+                        if (i < listtwo.count)
+                        {
+                            result.Add(listtwo[i]);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < listtwo.count; i++)
+                {
+                    if (i < listtwo.count)
+                    {
+                        result.Add(listtwo[i]);
+
+                        if (i < listone.count)
+                        {
+                            result.Add(listone[i]);
+                        }
+                    }
+                }
+            }
+            return result;
         }
 
         public void SwappingCapacity()
