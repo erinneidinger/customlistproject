@@ -118,19 +118,34 @@ namespace CustomList
             return result;
         }
 
-        //public static CustomList<T> operator -(CustomList<T> listone, CustomList<T> listtwo) //compare lists one and two
-        //{
-        //  for (int i = 0; i < listone.count; i++)
-        //  {
-        //    for (int j = 0; j < count; j++)
-        //    {
-        //        if (listone[i] == listtwo[j])
-        //        {
-        //            Remove();
-        //        }
-        //    }
-        //  }
-        //}
+        public static CustomList<T> operator -(CustomList<T> listone, CustomList<T> listtwo) //compare lists one and two
+        {
+            CustomList<T> result = new CustomList<T>();
+
+            for (int i = 0; i < listone.count; i++)
+            {
+                bool NotEqual = true;
+                for (int j = 0; j < listtwo.count; j++)
+                {
+                    if (listone[i].Equals(listtwo[j]))
+                    {
+                        NotEqual = false;
+                    }
+                }
+                if (NotEqual == true)
+                {
+                    result.Add(listone[i]);
+                }
+            }
+            return result;
+        }
+
+        public void Zip (CustomList<T> listone, CustomList<T> listtwo)
+        {
+            CustomList<T> result = new CustomList<T>();
+
+            
+        }
 
         public void SwappingCapacity()
         {

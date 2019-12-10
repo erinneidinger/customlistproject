@@ -555,7 +555,7 @@ namespace CustomListUnitTest1
         }
 
         [TestMethod] 
-        public void OverloadMethod_PlusOperator_DeterminingWhenNoChange()
+        public void OverloadMethod_MinusOperator_DeterminingWhenNoChange()
         {
             //arrange
             CustomList<string> customlist = new CustomList<string>();
@@ -568,7 +568,7 @@ namespace CustomListUnitTest1
             string fournumber = "4";
             string fifthnumber = "5";
 
-            string expected = "12345";
+            string expected = "12";
             string actual;
 
             one.Add(onenumber);
@@ -579,6 +579,209 @@ namespace CustomListUnitTest1
 
             //act
             customlist = one - two;
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod]
+        public void ZipMethod_ZipTwoLists_DetermineSum()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = "3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+            string sixthnumber = "6";
+
+            string expected = "142536";
+            string actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+            two.Add(sixthnumber);
+
+            //act
+            customlist = one.Zip(two);
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ZipMethod_ZipTwoLists_EmptyString()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = " ";
+            string fournumber = "4";
+            string fifthnumber = "5";
+            string sixthnumber = "6";
+
+            string expected = "1425 6";
+            string actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+            two.Add(sixthnumber);
+
+            //act
+            customlist = one.Zip(two);
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ZipMethod_ZipTwoLists_Count()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber ="3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+            string sixthnumber = "6";
+
+            int expected = 6;
+            int actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+            two.Add(sixthnumber);
+
+            //act
+            customlist = one.Zip(two);
+            actual = customlist.Count;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ZipMethod_ZipTwoLists_ListWithNothing()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = "3";
+            string fournumber = "";
+            string fifthnumber = "";
+            string sixthnumber = "";
+
+            string expected = "123";
+            string actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+            two.Add(sixthnumber);
+
+            //act
+            customlist = one.Zip(two);
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ZipMethod_ZipTwoLists_ListTwoLongerThanOther()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = "3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+            string sixthnumber = "6";
+            string seventhnumber = "7";
+
+            string expected = "1425367";
+            string actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            two.Add(fournumber);
+            two.Add(fifthnumber);
+            two.Add(sixthnumber);
+            two.Add(seventhnumber);
+
+            //act
+            customlist = one.Zip(two);
+            actual = customlist.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ZipMethod_ZipTwoLists_ListOneLongerThanOther()
+        {
+            //arrange
+            CustomList<string> customlist = new CustomList<string>();
+            CustomList<string> one = new CustomList<string>();
+            CustomList<string> two = new CustomList<string>();
+
+            string onenumber = "1";
+            string twonumber = "2";
+            string threenumber = "3";
+            string fournumber = "4";
+            string fifthnumber = "5";
+            string sixthnumber = "6";
+            string seventhnumber = "7";
+
+            string expected = "1526374";
+            string actual;
+
+            one.Add(onenumber);
+            one.Add(twonumber);
+            one.Add(threenumber);
+            one.Add(fournumber);
+            two.Add(fifthnumber);
+            two.Add(sixthnumber);
+            two.Add(seventhnumber);
+
+            //act
+            customlist = one.Zip(two);
             actual = customlist.ToString();
 
             //assert
